@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>jQuery - Refresh</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+   <h1>jQuery - Refresh</h1>
+      
+   <div class="select-container" data-letter="A">
+      B
+      <div class="select-wrapper">
+         <ul>
+            <li id="select-first">D</li>
+            <li></li>
+            <li>E</li>
+            <li></li>
+   C
+         </ul>
+      </div>
+   
+      <div>
+         <span>F</span>
+      </div>
+   </div>
+<script>
+   const letterA = $("div").attr('data-letter');
+   let allOtherLetters = $(".select-container").text();
+
+
+   // allOtherLetters = allOtherLetters.match(/B/g, /C/g);
+   
+   // Solution 1
+   // allOtherLetters = allOtherLetters.split('').filter(letter => letter !== ' ' && letter !== '' && letter !== '\n');
+   // allOtherLetters.unshift(letterA)
+   
+   console.log(letterA);
+   console.log(allOtherLetters);
+
+
+   // Solution 2
+    allOtherLetters = allOtherLetters.replace(/\s/g, ''); // removing spaces using regular expression
+    allOtherLetters = allOtherLetters.split('');  // Create an array from the word
+    allOtherLetters.unshift(letterA);
+    console.log(allOtherLetters);
+
+    // Solution 3
+   //  let arr = $.makeArray(allOtherLetters.replace(/\s/g, '').split(''));
+   //  console.log(arr);
+
+   
+  
+   
+   
+</script>
+</body>
+</html>
